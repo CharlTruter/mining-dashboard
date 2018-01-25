@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/css/bootstrap-notify.min.css">
+  <link rel="stylesheet" href="mining-dashboard.css">
+
+  <title>Armi's Mining Dashboard</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+    <a class="navbar-brand" href="#">Armi's Mining Dashboard</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://armizael.com">My Homepage</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    <div id="switch-div">
+      <button id="switch-btn" type="button" class="btn btn-light">Switch to USD</button>
+    </div>
+  </nav>
+  <div id="loader"></div>
+  <div id="error-loading" class="jumbotron text-center hidden">
+    <h1>Whoops...</h1>
+    <span>It doesn't look like we can load the dashboard right now.</span>
+    <span>Please try again later.</span>
+  </div>
+  <div id="earning-data" class="text-center p-3 hidden">
+    <h1>Earnings:</h1>
+    <canvas id="ltcEarningChart" width="600" height="100"></canvas>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button id="earning-ltc-btn" type="button" class="btn btn-secondary active" onclick="Dashboard.earningGraph.fillLtc();">LTC</button>
+      <button id="earning-fiat-btn" type="button" class="btn btn-secondary" onclick="Dashboard.earningGraph.fillFiat();">&nbsp;</button>
+    </div>
+  </div>
+  <div id="estimation-data" class="text-center p-3 hidden">
+    <h1>Estimations:</h1>
+    <table id="estimation-tbl" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Last 24 Hours</th>
+          <th scope="col">Hourly</th>
+          <th scope="col">Daily</th>
+          <th scope="col">Weekly</th>
+          <th scope="col">Monthly</th>
+          <th scope="col">Yearly</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div id="worker-data" class="text-center p-3 hidden">
+    <h1>Current Workers:</h1>
+    <table id="worker-tbl" class="table">
+      <thead>
+        <tr>
+          <th scope="col">Worker Name</th>
+          <th scope="col">Pool</th>
+          <th scope="col">Coin</th>
+          <th scope="col">Hashrate</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+  <div id='last-updated-data' class="text-center p-3 hidden">
+    <strong>Last updated:&nbsp;</strong>
+    <span id='last-updated-span'>&nbsp;</span>
+    <br />
+    <span class="text-muted">Powered by
+        <a href='https://miningpoolhubstats.com'>MiningPoolHubStats</a>
+      </span>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script src="mining-dashboard.js"></script>
+</body>
+
+</html>
